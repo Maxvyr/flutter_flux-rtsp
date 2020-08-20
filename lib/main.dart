@@ -39,42 +39,112 @@ class MyAppScaffoldState extends State<MyAppScaffold> {
       appBar: AppBar(
         title: Text("RTSP player"),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: TextField(
-              keyboardType: TextInputType.text,
-              onSubmitted: (stringSubmitted) {
-                setState(() {
-                  value = stringSubmitted;
-                });
-              },
-              // decoration note un text dans le text filed pour que
-              // l'opérateur sache quoit noter dans ce champ
-              decoration: InputDecoration(
-                labelText: "Entrez flux RTSP",
-                fillColor: Colors.blue,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25.0),
-                  borderSide: BorderSide(),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            SizedBox(height: Get.height * 0.1),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: TextField(
+                keyboardType: TextInputType.text,
+                onChanged: (stringSubmitted) {
+                  setState(() {
+                    ipRtsp = stringSubmitted;
+                  });
+                },
+                // decoration note un text dans le text filed pour que
+                // l'opérateur sache quoit noter dans ce champ
+                decoration: InputDecoration(
+                  labelText: "Entrez l'adresse",
+                  fillColor: Colors.blue,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(),
+                  ),
                 ),
               ),
             ),
-          ),
-          RaisedButton(
-            child: Text(value == "" ? "No value" : "Voir le flux"),
-            onPressed: value == ""
-                ? () {}
-                : () {
-                    Get.to(VideoPlayer());
-                    print("Go");
+            SizedBox(height: Get.height * 0.1),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: TextField(
+                keyboardType: TextInputType.text,
+                onChanged: (stringSubmittedPort) {
+                  setState(() {
+                    port = stringSubmittedPort;
+                  });
+                },
+                // decoration note un text dans le text filed pour que
+                // l'opérateur sache quoit noter dans ce champ
+                decoration: InputDecoration(
+                  labelText: "Entrez le port",
+                  fillColor: Colors.blue,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(25.0),
+                    borderSide: BorderSide(),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: Get.height * 0.05),
+            Text("Choix du flux :"),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                RaisedButton(
+                  child: Text(fluxPrincipal),
+                  onPressed: () {
+                    fluxChoisi = fluxPrincipal;
+                    setState(() {});
                   },
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0)),
-          ),
-        ],
+                  color: Colors.amber,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0)),
+                ),
+                RaisedButton(
+                  child: Text(fluxSecondaire),
+                  onPressed: () {
+                    fluxChoisi = fluxSecondaire;
+                    setState(() {});
+                  },
+                  color: Colors.amber,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0)),
+                ),
+              ],
+            ),
+            SizedBox(height: Get.height * 0.05),
+            Text("Lancer le flux :"),
+            RaisedButton(
+              child: Text(ipRtsp == "" ? "No value" : "Voir le flux"),
+              onPressed: ipRtsp == ""
+                  ? () {}
+                  : () {
+                      Get.to(VideoPlayer());
+                      print("Go");
+                    },
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0)),
+            ),
+            SizedBox(height: Get.height * 0.02),
+            Divider(
+              height: 1,
+              color: Colors.black,
+            ),
+            SizedBox(height: Get.height * 0.02),
+            RaisedButton(
+              child: Text("add flux exemple"),
+              onPressed: () {
+                ipRtsp = "admin:12345@192.168.0.121:9001";
+                print(ipRtsp);
+                setState(() {});
+              },
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0)),
+            ),
+          ],
+        ),
       ),
     );
   }
