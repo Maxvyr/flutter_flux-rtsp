@@ -19,6 +19,8 @@ class _VideoPlayerState extends State<VideoPlayer> {
     "--quiet",
     "--no-drop-late-frames",
     "--rtsp-throttle-users=0",
+    "--rtsp-pwd=12345",
+    "--rtsp-user=admin",
   ];
 
   String url = "$startValue$ipRtsp:$port$baseCodeFlux$fluxChoisi";
