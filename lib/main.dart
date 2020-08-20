@@ -53,8 +53,6 @@ class MyAppScaffoldState extends State<MyAppScaffold> {
                     ipRtsp = stringSubmitted;
                   });
                 },
-                // decoration note un text dans le text filed pour que
-                // l'opérateur sache quoit noter dans ce champ
                 decoration: InputDecoration(
                   labelText: "Entrez l'adresse",
                   fillColor: Colors.blue,
@@ -117,7 +115,7 @@ class MyAppScaffoldState extends State<MyAppScaffold> {
             SizedBox(height: Get.height * 0.05),
             Text("Lancer le flux :"),
             RaisedButton(
-              child: Text(ipRtsp == "" ? "No value" : "Voir le flux"),
+              child: Text(ipRtsp == "" ? "Pas de flux" : "Voir le flux"),
               onPressed: ipRtsp == ""
                   ? () {}
                   : () {

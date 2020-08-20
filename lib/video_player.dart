@@ -15,6 +15,11 @@ class _VideoPlayerState extends State<VideoPlayer> {
   VlcPlayerController _videoViewController3;
 
   double width = Get.width * 0.5;
+  List<String> optionVlc = [
+    "--quiet",
+    "--no-drop-late-frames",
+    "--rtsp-throttle-users=0",
+  ];
 
   String url = "$startValue$ipRtsp:$port$baseCodeFlux$fluxChoisi";
 
@@ -73,15 +78,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
                     url: url,
                     controller: _videoViewController0,
                     // Play with vlc options
-                    options: [
-                      "--quiet",
-//                      "--no-drop-late-frames",
-//                      "--no-skip-frames",
-                      "--rtsp-tcp",
-//                      "--aout=opensles"
-                    ],
-                    hwAcc: HwAcc
-                        .DISABLED, // or {HwAcc.AUTO, HwAcc.DECODING, HwAcc.FULL}
+                    options: optionVlc,
                     placeholder: Container(
                       height: 250.0,
                       child: Row(
@@ -98,15 +95,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
                     url: urlTest,
                     controller: _videoViewController1,
                     // Play with vlc options
-                    options: [
-                      "--quiet",
-//                      "--no-drop-late-frames",
-//                      "--no-skip-frames",
-                      "--rtsp-tcp",
-//                      "--aout=opensles"
-                    ],
-                    hwAcc: HwAcc
-                        .DISABLED, // or {HwAcc.AUTO, HwAcc.DECODING, HwAcc.FULL}
+                    options: optionVlc,
                     placeholder: Container(
                       height: 250.0,
                       child: Row(
@@ -127,15 +116,7 @@ class _VideoPlayerState extends State<VideoPlayer> {
                     url: urlTest,
                     controller: _videoViewController2,
                     // Play with vlc options
-                    options: [
-                      "--quiet",
-//                      "--no-drop-late-frames",
-//                      "--no-skip-frames",
-                      "--rtsp-tcp",
-//                      "--aout=opensles"
-                    ],
-                    hwAcc: HwAcc
-                        .DISABLED, // or {HwAcc.AUTO, HwAcc.DECODING, HwAcc.FULL}
+                    options: optionVlc,
                     placeholder: Container(
                       height: 250.0,
                       child: Row(
@@ -149,18 +130,10 @@ class _VideoPlayerState extends State<VideoPlayer> {
                   width: width,
                   child: VlcPlayer(
                     aspectRatio: 16 / 9,
-                    url: urlTest,
+                    url: url,
                     controller: _videoViewController3,
                     // Play with vlc options
-                    options: [
-                      "--quiet",
-//                      "--no-drop-late-frames",
-//                      "--no-skip-frames",
-                      "--rtsp-tcp",
-//                      "--aout=opensles"
-                    ],
-                    hwAcc: HwAcc
-                        .DISABLED, // or {HwAcc.AUTO, HwAcc.DECODING, HwAcc.FULL}
+                    options: optionVlc,
                     placeholder: Container(
                       height: 250.0,
                       child: Row(
