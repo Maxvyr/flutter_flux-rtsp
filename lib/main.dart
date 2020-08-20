@@ -1,10 +1,6 @@
-import 'dart:async';
-import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_app_player/variable.dart';
 import 'package:flutter_app_player/video_player.dart';
-import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:get/get.dart';
 
 void main() => runApp(MyApp());
