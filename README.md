@@ -15,7 +15,7 @@ Project for testing flux RTSP in flutter application
 
 ## Crypto Tips
 
-![https://i.imgur.com/4bS8l7R.png](https://i.imgur.com/4bS8l7R.png)
+![https://i.imgur.com/4bS8l7R.png](https://i.imgur.com/o7CLDbW.png)
 
 ## Contact Me
 
